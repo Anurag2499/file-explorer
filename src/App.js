@@ -6,7 +6,6 @@ import { useState } from 'react';
 function App() {
   const [explorerData, setExplorerData] = useState(explorer);
 
-  console.log(explorerData);
   return (
     <div className="App">
       <Folder explorer={explorerData} />
