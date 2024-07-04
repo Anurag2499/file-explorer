@@ -9,6 +9,10 @@ const Folder = ({ explorer }) => {
       <div style={{ marginTop: 5 }}>
         <div className="folder" onClick={() => setExpand(!expand)}>
           <span>📁 {explorer.name}</span>
+          <div>
+            <button>Folder +</button>
+            <button>File +</button>
+          </div>
         </div>
 
         <div style={{ display: expand ? 'block' : 'none', paddingLeft: 25 }}>
