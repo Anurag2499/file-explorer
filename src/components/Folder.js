@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-const Folder = ({ explorer }) => {
-  console.log(explorer);
+const Folder = ({ handleInsertNode, explorer }) => {
+  // console.log(explorer);
   const [expand, setExpand] = useState(false);
   const [showInput, setShowInput] = useState({
     visible: false,
@@ -18,9 +18,9 @@ const Folder = ({ explorer }) => {
   };
 
   const onAddFolder = (e) => {
-    if (e.keyCode == 13 && e.target.value) {
+    if (e.keyCode === 13 && e.target.value) {
       //Add Logic
-
+      handleInsertNode(explorer.id, e.target.value, showInput.isFolder);
       setShowInput({ ...showInput, visible: false });
     }
   };
@@ -50,7 +50,13 @@ const Folder = ({ explorer }) => {
             </div>
           )}
           {explorer.items.map((exp) => {
-            return <Folder explorer={exp} key={exp.id} />;
+            return (
+              <Folder
+                handleInsertNode={handleInsertNode}
+                explorer={exp}
+                key={exp.id}
+              />
+            );
           })}
         </div>
       </div>
